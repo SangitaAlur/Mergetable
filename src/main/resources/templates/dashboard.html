@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Optional: Change background color */
+        }
+        .table-sm td, .table-sm th {
+            padding: 0.25rem; /* Adjust table cell padding */
+            font-size: 0.85rem; /* Adjust table cell font size */
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Admin Dashboard</h1>
+
+        <!-- Table 1 Data -->
+        <h2>Table 1 Data</h2>
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="row : ${table1Data}">
+                    <td th:text="${row.id}"></td>
+                    <td th:text="${row.data}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Table 2 Data -->
+        <h2>Table 2 Data</h2>
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="row : ${table2Data}">
+                    <td th:text="${row.id}"></td>
+                    <td th:text="${row.data}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Table 3 (Merged) Data -->
+        <h2>Table 3 (Merged) Data</h2>
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="row : ${table3Data}">
+                    <td th:text="${row.id}"></td>
+                    <td th:text="${row.data}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Merge Tables Form -->
+        <form action="/merge" method="post">
+            <button type="submit" class="btn btn-primary">Merge Tables</button>
+        </form>
+    </div>
+    <!-- Bootstrap JavaScript (optional) -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+    <!-- Optional: Add your custom JavaScript here -->
+</body>
+</html>
